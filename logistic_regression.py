@@ -16,7 +16,8 @@ X, y = df.data, df.target
 y_binary = (y > np.median(y)).astype(int)
 
 # Split dataset
-X_train, X_test, y_train, y_test = train_test_split(X, y_binary, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y_binary, test_size=0.2, random_state=42)
 
 # Standardize features
 scaler = StandardScaler()
@@ -37,7 +38,8 @@ print("Classification Report:\n", classification_report(y_test, y_pred))
 
 # Scatter plot (not a true decision boundary but a visualization)
 plt.figure(figsize=(10, 6))
-sns.scatterplot(x=X_test[:, 2], y=X_test[:, 8], hue=y_test, palette={0: 'blue', 1: 'red'})
+sns.scatterplot(x=X_test[:, 2], y=X_test[:, 8],
+                hue=y_test, palette={0: 'blue', 1: 'red'})
 
 plt.xlabel('BMI')
 plt.ylabel('Age')
